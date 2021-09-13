@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var info = navigator.userAgent.toLowerCase(); // 운영체제 정보를 구합니다. 구한 정보를 소문자로 치환합니다.
+        var os = null;
+
+        if(info.indexOf('windows') >= 0){
+            os = "windows";
+        } else if(info.indexOf('macintosh') >= 0){
+            os = "macintosh";
+        } else if(info.indexOf('iphone') >= 0){
+            os = "iphone";
+        } else if(info.indexOf('android') >= 0){
+            os = "android";
+        }
+
+        document.write(os, "<br />");
+        var scr = screen;
+        var sc_w = scr.width;
+        var sc_h = scr.height;
+
+        document.write("모니터 해상도 너비: " + sc_w + "px","<br />");
+        document.write("모니터 해상도 높이: " + sc_h + "px","<br />");
+    </script>
+</body>
+</html>
