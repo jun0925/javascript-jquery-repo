@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /**
+         * 가장 가까운 상위 요소 선택자
+         * 가장 가까운 상위 요소 선택자는 선택한 요소를 기준으로 가장 가까운 상위 요소만 선택할 때 사용합니다.
+         * 
+         * $("요소 선택").closest("요소 선택")
+        */
+        $(function(){
+            $(".txt1").closest("div").css({ // 내용 위 div태그를 선택함
+                "border":"2px solid #f00"
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="title">선택자</h1>
+    <div>
+        <div>
+            <p class="txt1">내용</p>
+        </div>
+    </div>
+</body>
+</html>
