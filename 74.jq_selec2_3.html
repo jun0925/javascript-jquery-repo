@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /**
+         * eq(index)/lt(index)/gt(index) 탐색 선택자
+         * eq(index) 탐색 선택자는 선택한 요소 중 지정한 인덱스가 참조하는 요소만 선택하고
+         * lt(index) 선택자는 선택한 요소 중 지정한 인덱스보다 작은(lt,Less Than) 인덱스를 참조하는 요소만 선택합니다.
+         * 이와 반대로 gt(index)는 선택한 요소 중 지정한 인덱스보다 큰(gt, Greater Than) 인덱스를 참조하는 요소만 선택합니다.
+         * 
+         * $("요소 선택:eq(index)") 또는 $("요소 선택").eq(index)
+         * $("요소 선택:lt(index)")
+         * $("요소 선택:gt(index)")
+        */
+        $(function(){
+            $("#menu li").eq(2).css({"background-color":"#ff0"}); // 내용3 (인덱스 0번부터)
+            $("#menu li:lt(2)").css({"background-color":"#0ff"}); // menu>li 요소중 인덱스부터 작은거 
+            $("#menu li:gt(2)").css({"background-color":"#f0f"}); // menu>li 요소중 인덱스부터 큰거
+        });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+        <li>내용5</li>
+    </ul>
+</body>
+</html>
