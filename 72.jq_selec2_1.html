@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /**
+         * first 선택자는 선택된 요소 중 첫 번째 요소만 선택합니다.
+         * last 선택자는 선택된 요소 중 마지막 요소만 선택합니다.
+         * 
+         * $("요소 선택:first") 또는 $("요소 선택").first()
+         * $("요소 선택:last") 또는 $("요소 선택").last()
+        */
+        $(function(){
+            $("#menu li:first").css({"background-color":"#ff0"}); // 내용1
+            $("#menu li:last").css({"background-color":"#0ff"}); // 내용4
+        });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+</body>
+</html>
