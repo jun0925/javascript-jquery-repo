@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /**
+         * nth-child(숫자n)/nth-last-of-type(숫자) 선택자
+         * nth-child(숫자n) 선택자는 선택한 요소의 무리 중 지정한 숫자(배수)의 요소를 선택합니다.
+         * 
+         * $("요소 선택:nth-child(숫자)")
+         * $("요소 선택:nth-child(숫자n)")
+         * $("요소 선택:nth-last-child(숫자)")
+         * 
+         * 선택한 요소 중 지정한 숫자에 위치한 요소를 선택합니다.
+         * 선택한 요소 중 지정한 배수에 위치한 요소를 선택합니다.
+         * 선택한 요소 중 마지막 위치에서 지정한 숫자에 위치한 요소를 선택합니다.
+        */
+        $(function(){
+            $("#menu1 li:nth-child(1)").css({"background-color":"#ff0"}); // 내용 1-1
+            $("#menu1 li:nth-child(2n)").css({"border":"2px dashed #f00"}); // 내용 1-2. 1-4
+            $("#menu2 li:nth-last-child(2)").css({"background-color":"#0ff"}); // 내용 2-2(뒤에서 부터 카운트)
+        });
+    </script>
+</head>
+<body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu1">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+        <li>내용1-4</li>
+    </ul>
+    <ul id="menu2">
+        <li>내용2-1</li>
+        <li>내용2-2</li>
+        <li>내용2-3</li>
+    </ul>
+</body>
+</html>
