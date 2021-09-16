@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        attr() / removeAttr() 메서드
+
+        attr() 메서드는 선택한 요소에 새 속성을 생성하거나 기존의 속성을 변경할 때 또는 요소의 속성값을 불러올 때 사용한비다.
+        removeAttr() 메서드는 선택한 요소에서 기존의 속성을 삭제할 때 사용합니다.
+
+        attr()
+        $("요소 선택").attr("속성명");
+        $("요소 선택").attr("속성명", "새 값");
+        $("요소 선택").attr({"속성명1":"새 값1", "속성명2":"새 값2"...});
+
+        removeAttr()
+        $("요소 선택").removeAttr("속성");
+        */
+        $(function(){
+            var srcVal = $("#sec_1 img").attr("src");
+            console.log(srcVal);
+
+            $("#sec_1 img").attr({
+                "width":200,
+                "src":srcVal.replace("pic_1.jpg","pic_2.jpg"),
+                "alt":"img2"
+            }).removeAttr("border");
+        });
+    </script>
+</head>
+<body>
+    <h1><strong>객체 조작 및 생성</strong></h1>
+    <section id="sec_1">
+        <h2>이미지 속성</h2>
+        <p>
+            <img src="images/pic_1.jpg" alt="img1" border="2"></img>
+        </p>
+    </section>
+</body>
+</html>
