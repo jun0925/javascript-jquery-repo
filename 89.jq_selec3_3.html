@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        addClass() / removeClass() / toggleClass() / hasClass() 메서드
+
+        addClass() 
+        선택한 요소에 클래스를 생성합니다.
+
+        removeClass()
+        선택한 요소에서 지정한 클래스를 삭제합니다.
+
+        toggleClass()
+        선택한 요소에 지정한 클래스가 없으면 생성하고, 있으면 삭제합니다.
+
+        hasClass()
+        선택한 요소에 지정한 클래스가 있으면 true를 반환하고 없으면 false를 반환합니다.
+
+        $("요소 선택").addClass("class 값");
+        요소를 선택하여 지정한 class 값을 생성합니다.
+
+        $("요소 선택").removeClass("class 값");
+        요소를 선택하여 지정한 class 값을 삭제합니다.
+
+        $("요소 선택").toggleClass("class 값");
+        요소를 선택하여 지정한 class 값이 있으면 삭제하고, 없으면 생성합니다.
+
+        $("요소 선택").hasClass("class 값");
+        선택한 요소에 지정한 class값이 있으면 true, 없으면 false를 반환합니다.
+        */
+        $(function(){
+            $("#p1").addClass("aqua");
+            $("#p2").removeClass("red");
+            $("#p3").toggleClass("green");
+            $("#p4").toggleClass("green");
+            $("#p6").text($("#p5").hasClass("yellow"));
+        });
+    </script>
+    <style>
+        .aqua {background-color: #0ff;}
+        .red {background-color: #f00;}
+        .green {background-color: #0f0;}
+        .yellow {background-color: #ff0;}
+    </style>
+</head>
+<body>
+    <p id="p1">내용1</p>
+    <p id="p2" class="red">내용2</p>
+    <p id="p3">내용3</p>
+    <p id="p4" class="green">내용4</p>
+    <p id="p5" class="yellow">내용5</p>
+    <p id="p6"></p>
+</body>
+</html>
