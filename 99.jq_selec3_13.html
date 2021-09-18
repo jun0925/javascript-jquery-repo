@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        unwrap() : 선택한 요소의 부모 요소를 삭제합니다.
+        wrap() : 선택한 요소를 각각 새 요소로 감쌉니다.
+        wrapAll() : 선택한 요소를 한꺼번에 새 요소로 감쌉니다.
+        wrapInner() : 선탁한 요소의 모든 하위 요소를 새 요소로 감쌉니다.
+
+        $("요소 선택").unwrap();
+        $("요소 선택").wrap(새 요소);
+        $("요소 선택").wrapAll(새 요소);
+        $("요소 선택").wrapInner(새 요소);
+        */
+        $(function(){
+            $(function(){
+                $("strong").unwrap();
+                $(".ct1").wrap("<div />");
+                $(".ct2").wrapAll("<div />");
+                $("li").wrapInner("<h3 />");
+            });
+        });
+    </script>
+    <style>
+        div{
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="tit_1"><strong>객체 조작 및 생성</strong></h1>
+    <p class="ct1">내용1</p>
+    <p class="ct1">내용2</p>
+    <p class="ct2">내용3</p>
+    <p class="ct2">내용4</p>
+</body>
+</html>
