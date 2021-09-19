@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        마우스 이벤트
+
+        click()/dbclick() 이벤트 메서드
+
+        click 이벤트 등록
+        $("이벤트 대상 선택").click(function(){자바스크립트 코드;});
+        $("이벤트 대상 선택").on("click",function(){자바스크립트 코드;});
+
+        click 이벤트 강제 발생
+        $("이벤트 대상 선택").click();
+
+        dbclick 이벤트 등록
+        $("이벤트 대상 선택").dbclick(function(){자바스크립트 코드;});
+        $("이벤트 대상 선택").on("dbclick",function(){자바스크립트 코드;});
+
+        dbclick 이벤트 강제 발생
+        $("이벤트 대상 선택").dbclick();
+
+        ===================================================================
+
+        <a>, <form> 태그에 클릭 이벤트 적용 시 기본 이벤트 차단하기
+        <a> 링크로 이동 해버리는 문제가 발생
+        <form> action의 적혀있는 링크로 이동하는 문제가 발생
+        따라서 이러한 기본이벤트를 막아주는 작업을 해야합니다.
+
+        1. return false를 이용한 방식
+        $("a 또는 form").이벤트 메서드(function(){
+            자바스크립트 코드;
+            return false;
+        });
+
+        2. preventDefault() 메서드를 이용한 차단 방식
+        $("a 또는 form").이벤트 메서드(function(e){
+            e.preventDefault(); // prevent는 막다를, Default는 기본 이벤트를 의미합니다.
+            자바스크립트 코드;
+        })
+        */
+        $(function(){
+            $(".btn1").on("click",function(e){
+                e.preventDefault(); // <a> 요소의 기본 이벤트를 차단합니다.
+                $(".txt1").css({"background-color":"#ff0"});
+            });
+
+            $(".btn2").on("click",function(e){
+                $(".txt2").css({"background-color":"#0ff"});
+            });
+
+            $(".btn3").on("dblclick",function(){
+                $(".txt3").css({"background-color":"#0f0"});
+            });
+        });
+    </script>
+</head>
+<body>
+    <p><a href="http://www.google.co.kr/" class="btn1">버튼1</a></p>
+    <p class="txt1">내용1</p>
+    <p><a href="http://www.google.co.kr/" class="btn2">버튼2</a></p>
+    <p class="txt2">내용2</p>
+    <p><button class="btn3">버튼3</button></p>
+    <p class="txt3">내용3</p>
+</body>
+</html>
