@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        mouseover vs mouseenter
+        moseover는 해당요소 mouseenter는 이벤트 대상이 포함된 범위에 마우스가 올라가면 이벤트가 발생함
+
+        mouseenter 이벤트 등록
+        $("이벤트 대상 선택").mouseenter(function(){자바스크립트 코드;});
+        $("이벤트 대상 선택").on("mouseenter",function(){자바스크립트 코드;});
+
+        mouseenter 이벤트 강제 발생
+        $("이벤트 대상 선택").mouseenter();
+        
+        mouseleave 이벤트 등록
+        $("이벤트 대상 선택").mouseleave(function(){자바스크립트 코드;});
+        $("이벤트 대상 선택").on("mouseleave",function(){자바스크립트 코드;});
+
+        mouseleave 이벤트 강제 발생
+        $("이벤트 대상 선택").mouseleave();
+        */
+        $(function(){
+            $("#box_1").on("mouseout",function(){
+                $("#box_1").css({"background-color":"yellow"});
+            });
+
+            $("#box_2").on("mouseleave",function(){
+                $("#box_2").css({"background-color":"pink"});
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>mouseout</h1>
+    <div id="box_1">
+        <p><a href="#">내용1</a></p>
+        <p><a href="#">내용2</a></p>
+        <p><a href="#">내용3</a></p>
+    </div>
+    <h1>mouseleave</h1>
+    <div id="box_2">
+        <p><a href="#">내용4</a></p>
+        <p><a href="#">내용5</a></p>
+        <p><a href="#">내용6</a></p>
+    </div>
+</body>
+</html>
