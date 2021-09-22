@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        이벤트 제거 메서드
+
+        off()/unbind()/undelegate()로 이벤트 해제하기
+        on() -> off()
+        bind() -> unbind()
+        delegate() -> undelegate() 메서드로 이벤트를 해제합니다.
+
+        off() 사용법
+        $("이벤트 대상 요소 선택").off("이벤트 종류");
+        $([document | "이벤트 대상 상위 요소 선택"]).off("이벤트 종류","이벤트 대상 요소 선택");
+        
+        unbinde() 사용법
+        $("이벤트 대상 요소 선택").unbind("이벤트 종류");
+        
+        undelegate() 사용법
+        $("이벤트 대상 요소 선택").undelegate("이벤트 종류");
+        $([document | "이벤트 대상 상위 요소 선택"]).undelegate("이벤트 종류","이벤트 대상 요소 선택");
+        */
+        $(function(){
+            $(".btn_1").on("mouseover",function(){
+                alert("HELLO!");
+            });
+
+            $(document).on("mouseover",".btn_2",function(){ // 라이브 이벤트 등록
+                alert("WELCOME!");
+            });
+
+            var btn_2 = $("<p><button class=\"btn_2\">버튼2</button></p>");
+            $("#wrap").append(btn_2);
+
+            $(".del_1").on("click",function(){
+                $(".btn_1").off("mouseover");
+            });
+
+            $(".del_2").on("click",function(){
+                $(document).off("mouseover",".btn_2"); // 라이브 이벤트 해제
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p><button class="btn_1">버튼1</button></p>
+    </div>
+    <p>
+        <button class="del_1">버튼1 이벤트 해제</button>
+        <button class="del_2">버튼2 이벤트 해제</button>
+    </p>
+</body>
+</html> 
