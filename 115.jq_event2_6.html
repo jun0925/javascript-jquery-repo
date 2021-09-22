@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        그룹 이벤트 등록 메서드
+
+        on()메서드
+        선택한 요소에 이벤트를 등록한 이후에도 새롭게 생성되거나 복제된 요소에 이벤트를 적용할 수 있습니다.
+
+        동적으로 생성된 요소에도 이벤트가 등록되는 on() 메서드의 '라이브 이벤트 등록 방식'의 기본형
+        $([document|"이벤트 대상의 상위 요소 선택"]).on("이벤트 종류","이벤트 대상 선택",function(){자바스크립트 코드;});
+        */
+        $(function(){
+            $(".btn_1.on").on("mouseover focus",function(){
+                alert("HELLO!");
+            });
+            $(".btn_1").addClass("on");
+
+            $(document).on("mouseover focus",".btn_2.on",function(){
+                alert("WELCOME!");
+            });
+            $(".btn_2").addClass("on");
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p><button class="btn_1">버튼1</button></p>
+        <p><button class="btn_2">버튼2</button></p>
+    </div> 
+</body>
+</html> 
