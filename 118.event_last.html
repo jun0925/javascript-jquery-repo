@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        1. 글자 크기는 14px에서 시작하여 축소버튼을 누르면 1px씩 감소하고 확대버튼을 누르면 1px 증가합니다.(최소 8px, 최대 20px)
+        2. 기본 크기(100%) 버튼을 누르면 다시 14px이 됩니다.
+        3. 글자 크기에 맞추어 아래 문장의 글자 크기를 변경합니다.
+        */
+        $(function(){
+            var baseFontSize = 14;
+            $(".zoomBtnZone button").on("click",zoomInOut);
+            function zoomInOut(){
+                if($(this).hasClass("zoomOutBtn")){
+                    if(baseFontSize<=8) return false;
+                    baseFontSize--;
+                }else if($(this).hasClass("zoomInBtn")){
+                    if(baseFontSize>=20) return false;
+                    baseFontSize++;
+                }else{
+                    baseFontSize = 14;
+                }
+                $(".fontSize").text(baseFontSize + "px");
+                $("body").css({fontSize:baseFontSize + "px"});
+            }
+        });
+    </script>
+</head>
+<body>
+    <p class="zoomBtnZone">
+        <button class="zoomOutBtn">-</button>
+        <button class="originBtn">100%</button>
+        <button class="zoomInBtn">+</button></p>
+    <p class="fontSize">14px</p>
+    <div id="wrap"></div>
+</body>
+</html> 
