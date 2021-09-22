@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        /*
+        그룹 이벤트 등록 메서드
+
+        delegate()/one() 이벤트 등록 메서드
+        
+        delegate(): 선택한 요소의 하위 요소에 이벤트를 등록합니다.
+        그리고 이벤트를 등록한 이후에도 동적으로 생성된 요소와 복제된 요소에도 이벤트를 등록합니다.
+        $([document | "이벤트 대상의 상위 요소 선택"]).delegate("이벤트 대상 요소 선택","이벤트 종류",function(){자바스크립트 코드;});
+
+        one(): 이벤트가 1회 발생하면 자동으로 등록된 이벤트가 제거됩니다.
+        일회성 이벤트를 등록할 때 사용합니다. '라이브 이벤트'의 등록이 가능합니다.
+        $("이벤트 대상 선택").one("이벤트 종류",function(){자바스크립트 코드;});
+        $([document | "이벤트 대상의 상위 요소 선택"]).one("이벤트 종류", "이벤트 대상 요소 선택",function(){자바스크립트 코드;});
+        */
+        $(function(){
+            $(".btn_wrap").delegate(".btn_1.on","mouseover foucs",function(){
+                alert("HELLO!");
+            });
+            $(".btn_1").addClass("on");
+
+            $(document).one("mouseover foucs",".btn_2.on",function(){
+                alert("WELCOME!");
+            });
+            $(".btn_2").addClass("on");
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p class="btn_wrap">
+            <button class="btn_1">버튼1</button>
+        </p>
+        <p>
+            <button class="btn_2">버튼2</button>
+        </p>
+    </div>
+</body>
+</html> 
