@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+        /**
+        $.ajax() 메서드를 사용하여 외부 데이터(XML)를 불러옵니다.
+        그런 다음 불러온 100명의 가상 회원 데이터를 표(Table)로 가공하여 class 값이 "wrap"인 문단 태그에 결합시켜 출력합니다.
+        */
+        $(function(){
+            $.ajax({
+                url:"03.dataset.xml",
+                dataType:"xml",
+                success:function(data){
+                    var $data = $(data).find("record"); // dataset.xml에서 find() 메서드를 사용해 얻어 낸 <record> 객체를 참조합니다.
+                    if($data.length > 0){
+                        var tb = $("<table />");
+                        $.each($data, function(i,o){
+                            var $id = $(o).find("id").text();
+                            var $first_name = $(o).find("first_name").text();
+                            var $last_name = $(o).find("last_name").text();
+                            var $email = $(o).find("email").text();
+                            var $gender = $(o).find("gender").text();
+
+                            var row = $("<tr />").append(
+                                $("<td />").text($id),
+                                $("<td />").text($first_name),
+                                $("<td />").text($last_name),
+                                $("<td />").text($email),
+                                $("<td />").text($gender)
+                            );
+
+                            tb.append(row);
+                        });
+                        $(".wrap").append(tb);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap"></div>
+</body>
+</html>
