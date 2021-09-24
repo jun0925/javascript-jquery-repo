@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.cookie.min.js"></script>
+    <script>
+        /**
+         * 3일동안 열리지 않는 팝업 예제
+        */
+        $(function(){
+            if($.cookie("popup") == "none"){ // 쿠키("popup")의 값이 "none"이면 id 값이 "notice_wrap"인 요소를 숨깁니다.
+                $("#notice_wrap").hide();
+            }
+
+            var $expChk = $("#expiresChk");
+            $(".closeBtn").on("click",closePop);
+
+            function closePop(){
+                if($expChk.is(":checked")){
+                    $.cookie("popup","none",{expires:3,path:"/"}); // 쿠키를 3일간 저장
+                }
+                $("#notice_wrap").fadeOut("fast");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="notice_wrap">
+        <img src="../images/pic_1.jpg" alt="공지사항" style="width:250px;height:400px;">
+        <p class="closeWrap">
+            <input type="checkbox" name="expiresChk" id="expiresChk">
+            <label for="expiresChk">3일 동안 이 창 열지않기</label>
+            <button class="closeBtn">닫기</button>
+        </p>
+    </div>
+</body>
+</html>
